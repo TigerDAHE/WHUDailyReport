@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>武大日报平安</title>
     <script type="text/javascript">
-        function getTime() {
+        function getDate() {
             var today = new Date();
 
             var m = today.getMonth() + 1;
@@ -147,7 +147,46 @@
                 }
 
             }
-            setTimeout('getTime()', 10);
+            setTimeout('getDate()', 10);
+        }
+
+        function getTime() {
+            var today = new Date();
+
+            var h = today.getHours();
+            var min = today.getMinutes();
+            var s = today.getSeconds();
+            var milli = today.getMilliseconds();
+
+            if (h >= 10) {
+                if (min >= 10) {
+                    if (s >= 10) {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":" + min + ":" + s + "." + milli;
+                    } else {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":" + min + ":0" + s + "." + milli;
+                    }
+                } else {
+                    if (s >= 10) {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":0" + min + ":" + s + "." + milli;
+                    } else {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":0" + min + ":0" + s + "." + milli;
+                    }
+                }
+            } else {
+                if (min >= 10) {
+                    if (s >= 10) {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":" + min + ":" + s + "." + milli;
+                    } else {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":" + min + ":0" + s + "." + milli;
+                    }
+                } else {
+                    if (s >= 10) {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":0" + min + ":" + s + "." + milli;
+                    } else {
+                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":0" + min + ":0" + s + "." + milli;
+                    }
+                }
+            }
         }
     </script>
     <style>
@@ -158,13 +197,15 @@
         }
         
         p {
-            font-size: 55px;
+            font-size: 63px;
             color: white;
             position: center;
             margin-top: 10px;
         }
         
         #display {
+            width: 540px;
+            height: 100px;
             position: absolute;
             left: 300px;
             top: 730px;
@@ -198,7 +239,7 @@
     </style>
 </head>
 
-<body onLoad="getTime()">
+<body onLoad="getDate()">
     <div id="BGI">
         <!--<image src="BGI.jpg">-->
         <div id="display">
