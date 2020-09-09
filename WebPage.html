@@ -145,7 +145,6 @@
                         }
                     }
                 }
-
             }
             setTimeout('getDate()', 10);
         }
@@ -155,38 +154,21 @@
 
             var h = today.getHours();
             var min = today.getMinutes();
-            var s = today.getSeconds();
-            var milli = today.getMilliseconds();
 
             if (h >= 10) {
                 if (min >= 10) {
-                    if (s >= 10) {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":" + min + ":" + s + "." + milli;
-                    } else {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":" + min + ":0" + s + "." + milli;
-                    }
+                    document.getElementById("time").innerHTML = h + ":" + min;
                 } else {
-                    if (s >= 10) {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":0" + min + ":" + s + "." + milli;
-                    } else {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " " + h + ":0" + min + ":0" + s + "." + milli;
-                    }
+                    document.getElementById("time").innerHTML = h + ":0" + min;
                 }
             } else {
                 if (min >= 10) {
-                    if (s >= 10) {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":" + min + ":" + s + "." + milli;
-                    } else {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":" + min + ":0" + s + "." + milli;
-                    }
+                    document.getElementById("time").innerHTML = "0" + h + ":" + min;
                 } else {
-                    if (s >= 10) {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":0" + min + ":" + s + "." + milli;
-                    } else {
-                        document.getElementById("DateAndTime").innerHTML = m + "-" + d + " 0" + h + ":0" + min + ":0" + s + "." + milli;
-                    }
+                    document.getElementById("time").innerHTML = "0" + h + ":0" + min;
                 }
             }
+            setTimeout('getTime()', 1000);
         }
     </script>
     <style>
@@ -211,13 +193,20 @@
             height: 100px;
             position: absolute;
             left: 300px;
-            top: 730px;
+            top: 725px;
+        }
+        
+        #time {
+            font-size: 31px;
+            position: absolute;
+            left: 65px;
+            top: 26px;
         }
         
         input {
             outline-style: none;
             border: 0px;
-            font-size: 41px;
+            font-size: 39px;
             color: #828282;
             background-color: transparent;
         }
@@ -225,39 +214,40 @@
         #info1 {
             position: absolute;
             left: 443px;
-            top: 901px;
+            top: 893px;
         }
         
         #info2 {
             position: absolute;
             left: 443px;
-            top: 1002px;
+            top: 992px;
         }
         
         #info3 {
             position: absolute;
             left: 443px;
-            top: 1193px;
+            top: 1188px;
         }
     </style>
 </head>
 
-<body onLoad="getDate()">
+<body onLoad="getDate();getTime()">
     <div id="BGI">
         <!--<image src="BGI.jpg">-->
+        <div id="time"></div>
         <div id="display">
             <p id="DateAndTime"></p>
+            </>
+            <div id="info1">
+                <input type="text">
+            </div>
+            <div id="info2">
+                <input type="text">
+            </div>
+            <div id="info3">
+                <input type="text">
+            </div>
         </div>
-        <div id="info1">
-            <input type="text">
-        </div>
-        <div id="info2">
-            <input type="text">
-        </div>
-        <div id="info3">
-            <input type="text">
-        </div>
-    </div>
 
 </body>
 
